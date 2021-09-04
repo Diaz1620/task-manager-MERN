@@ -1,0 +1,39 @@
+GET http://localhost:8000/api/tasks HTTP/1.1
+
+###
+
+POST http://localhost:8000/api/tasks HTTP/1.1
+Content-Type:application/json
+
+{
+    "title": "Test",
+    "important": true,
+    "due": "12/28/2021 20:00",
+    "location": "home",
+    "priority": "high",
+    "contact": "wife",
+    "description": "Short description"
+}
+
+###
+
+GET http://localhost:8000/api/tasks/612e473d4e4a6c2e8ec2752e HTTP/1.1
+
+###
+
+PUT http://localhost:8000/api/tasks/612e473d4e4a6c2e8ec2752e HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "A Title",
+    "important": true,
+    "due": "12/28/2021 20:00",
+    "location": "home",
+    "priority": "high",
+    "contact": "wife",
+    "description": "Short description"
+}
+
+###
+
+DELETE http://localhost:8000/api/tasks/612e473d4e4a6c2e8ec2752e HTTP/1.1
