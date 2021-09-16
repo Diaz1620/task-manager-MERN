@@ -2,22 +2,9 @@ import { useState, useEffect} from "react";
 import Axios from "axios";
 import TaskForm from "../components/taskForm";
 import { navigate } from "@reach/router";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Edit = props => {
-    var important = true
-    
-    const toggleImportant = e => {
-        console.log("Button pressed");
-        if(important === true) {
-            important = false
-            console.log("false");
-        }else{
-            important = true
-            console.log("true");
-        }
-        
-    }
 
     const [form, setForm] = useState(false);
 
@@ -29,7 +16,6 @@ const Edit = props => {
 
     const [errors, setErrors] = useState({
         title: "",
-        "important": important,
         due: "",
         location: "",
         priority: "",
@@ -66,7 +52,6 @@ const Edit = props => {
                         title="Edit Task"
                         submitValue="Edit"
                         handleInputChange={handleChange}
-                        isImportant={toggleImportant}
                         handleSubmit={handleSubmit}
                         errors={errors}
                     />

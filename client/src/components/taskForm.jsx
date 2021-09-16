@@ -1,8 +1,8 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../views/main.css'
 
 const TaskForm = props => {
-    const {inputs, handleInputChange, handleSubmit, title, submitValue, isImportant, errors} = props;
+    const {inputs, handleInputChange, handleSubmit, title, submitValue, errors} = props;
 
     return (
         <form onSubmit={handleSubmit} className="">
@@ -14,11 +14,11 @@ const TaskForm = props => {
                     {errors.title ? errors.title.message: ""}
                 </span>
             </div>
-            <div className="form-group">
+            {/* <div className="form-group">
                 <label htmlFor="important">Important:</label>
-                <FontAwesomeIcon icon={["fas" ,"star"]} onClick={isImportant} />
+                <FontAwesomeIcon icon={[important ? "fas":"far" ,"star"]} onClick={isImportant} onChange={handleInputChange} />
 
-            </div>
+            </div> */}
             <div className="form-group">
                 <label htmlFor="due">Due Date:</label>
                 <input type="datetime-local" name="due" className="form-control"  onChange={handleInputChange} value={inputs.due}/>

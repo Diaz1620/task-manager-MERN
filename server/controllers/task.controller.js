@@ -24,7 +24,7 @@ module.exports = {
     },
     destroy: (req,res) => {
         Task.deleteOne({_id:req.params.id})
-            .then(data => res.json({results:data}))
+            .then(data => res.redirect(303,'/api/tasks'))
             .catch(err => res.status(404).json({errors:err.errors}));
     }
 }

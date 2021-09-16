@@ -4,19 +4,20 @@ import TaskForm from '../components/taskForm';
 import { navigate } from '@reach/router';
 
 const Create = props => {
-    const [important,setImportant] = useState(false)
+    // const [important,setImportant] = useState(false)
     
-    const toggleImportant = e => {
-        console.log("Button pressed");
-        let star = !important;
-        setImportant(star);
-        console.log(`changed to ${star}`);
-    }
+    // const toggleImportant = e => {
+    //     console.log("Button pressed");
+    //     let star = !important;
+    //     setImportant(star);
+    //     console.log(`changed to ${star}`);
+    // }
     // var isImportant =  <FontAwesomeIcon icon={["fas" ,"star"]} onClick={toggleImportant} />;
     
 
     const [form,setForm] = useState({
         title: "",
+        // important: important,
         due: "",
         location: "",
         priority: "",
@@ -58,9 +59,10 @@ const Create = props => {
                 title="Create Task"
                 submitValue="Create"
                 handleInputChange={handleChange}
-                isImportant={toggleImportant}
+                // isImportant={toggleImportant}
                 handleSubmit={handleSubmit}
                 errors={errors}
+                // important = {important}
             />
         </div>
     )
