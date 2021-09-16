@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.main-content {
+  background: url(./images/alex-shutin-kKvQJ6rK6S4-unsplash.jpg);
+  min-height: 63.12rem;
+}

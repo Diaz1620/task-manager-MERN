@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react';
 import Axios from 'axios';
+import './main.css';
+import {Link} from '@reach/router';
 
 const Main = props => {
     const [tasks,setTasks] = useState(false);
@@ -13,7 +15,8 @@ const Main = props => {
 
     return(
         tasks ?
-            <section className='section-list'>
+        <section className='section-list'>
+                <h2>Your Pending Tasks</h2>
                 {
                     tasks.map((t,i) => {
                         return <div key={i} className="task container">
@@ -25,6 +28,7 @@ const Main = props => {
                             </div>
                             <div className="d-flex justify-content-between">
                                 <label>Description: {t.description}</label>
+                                <Link to={`/edit/${t._id}`}>Edit</Link>
                             </div>
                             <hr />
                             <div className="d-flex justify-content-between">

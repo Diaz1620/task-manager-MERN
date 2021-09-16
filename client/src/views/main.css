@@ -1,0 +1,18 @@
+.task{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 1rem;
+    /* width: 70rem; */
+    margin: 3rem auto;
+    background-color: white;
+}
+
+.task-form{
+    /* width:70rem; */
+    padding: 3rem;
+    text-align: start;
+}
+
+.form-group{
+    margin-top: 1rem;
+}

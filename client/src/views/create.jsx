@@ -2,31 +2,30 @@ import { useState } from 'react';
 import Axios from 'axios';
 import TaskForm from '../components/taskForm';
 import { navigate } from '@reach/router';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Create = props => {
-    var important = true
+    const [important,setImportant] = useState(false)
     
     const toggleImportant = e => {
         console.log("Button pressed");
-        if(important === true) {
-            <FontAwesomeIcon icon={["far", "fa-star"]} onClick={toggleImportant}></FontAwesomeIcon>;
-            important = false
-            console.log("false");
-        }else{
-            <FontAwesomeIcon icon={["fas", "fa-star"]} onClick={toggleImportant}></FontAwesomeIcon>;
-            important = true
-            console.log("true");
-        }
-        
+        let star = !important;
+        setImportant(star);
+        console.log(`changed to ${star}`);
     }
-
     // var isImportant =  <FontAwesomeIcon icon={["fas" ,"star"]} onClick={toggleImportant} />;
     
 
     const [form,setForm] = useState({
         title: "",
-        "important": important,
+        due: "",
+        location: "",
+        priority: "",
+        contact: "",
+        description: ""
+    })
+
+    const [errors, setErrors] = useState({
+        title: "",
         due: "",
         location: "",
         priority: "",
@@ -46,11 +45,14 @@ const Create = props => {
 
         Axios.post("http://localhost:8000/api/tasks",form)
             .then(res => navigate('/'))
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err.response.data.errors);
+                setErrors(err.response.data.errors);
+            })
     }
 
     return(
-        <>
+        <div className="task-form">
             <TaskForm 
                 inputs={form}
                 title="Create Task"
@@ -58,8 +60,9 @@ const Create = props => {
                 handleInputChange={handleChange}
                 isImportant={toggleImportant}
                 handleSubmit={handleSubmit}
+                errors={errors}
             />
-        </>
+        </div>
     )
 }
 

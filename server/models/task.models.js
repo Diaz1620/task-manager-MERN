@@ -20,7 +20,7 @@ const TaskSchema = new mongoose.Schema({
     },
     priority:{
         type: String,
-        required: true
+        required: false
     },
     contact:{
         type: String
